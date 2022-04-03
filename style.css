@@ -1,0 +1,14 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: rgba(139, 175, 169, 0.81);
+}
+
+select {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 135px;
+    height: 22.5px;
+}
+
+input {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
