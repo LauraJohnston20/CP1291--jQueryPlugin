@@ -12,7 +12,10 @@
                 background: 'rgba(200, 200, 200, 1)',
                 border: "5px solid #ffffff",
                 borderRadius: "15px",
-                  
+                fontSize: "large",
+                fontFamily: "sans-serif",
+                textAlign: "center",
+                textColor: "black"
            }
         }, options)
 
@@ -23,9 +26,7 @@
             setCloseButtonProperties();
             displayConversionInfo();
             
-
             $(this).find("#convert").on("click", function(event) {
-    
                 event.preventDefault();
 
                 let initialVolume = $("#initial_volume").val();
@@ -45,13 +46,53 @@
                     $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
                     $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
                     let finalVolume = (calculateConversion(initialVolume, initialUnit, finalUnit));
-                    $conversionDisplay.append(`${initialUnit}`)
+                    $conversionDisplay.append(`\nUse ${(finalVolume).toFixed(2)} ${(finalUnit).toLowerCase()}(s) instead of ${initialVolume} ${initialUnit.toLowerCase()}(s)!`)
+                   
+                   
                     console.log(initialVolume);
                     console.log(initialUnit);
                     console.log(finalUnit);
                     console.log(finalVolume.toFixed(3));
                 }
             });
+
+            function displayConversionInfo() {
+                $conversionDisplay = $(`<div class="result"></div>`);
+                $conversionDisplay.css({
+                    "width": "400px",
+                    "height": "200px",
+                    "position":"absolute",
+                    "top": "25%",
+                    "left": "50%",
+                    "margin": "-100px 0 0 -200px",
+                    "z-index":"999",
+                    "display":"none",
+                    "background": settings.conversionDisplay.background,
+                    "border": settings.conversionDisplay.border,
+                    "border-radius": settings.conversionDisplay.borderRadius,
+                    "font-size": settings.conversionDisplay.fontSize,
+                    "font-family": settings.conversionDisplay.fontFamily,
+                    "text-align": settings.conversionDisplay.textAlign,
+                    "color": settings.conversionDisplay.textColor                    
+                });
+                $("body").append($conversionDisplay);
+            };
+
+            function setOverlayProperties() {
+                $overlay = $('<div></div>');
+                $overlay.css({
+                    "background": settings.overlay,
+                    "position": "absolute",
+                    "top": "0px",
+                    "left": "0px",
+                    "display": "none",
+                    "text-align": "center",
+                    "width": "100%",
+                    "height": "100%",
+                    "padding-top": "5%" 
+                });
+                $("body").append($overlay);
+            }
 
             function calculateConversion (initialVolume, initialUnit, finalUnit) {
                 let finalVolume;
@@ -64,11 +105,11 @@
                         finalVolume = initialVolume / 48;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume / 6;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume / 96;
                         return finalVolume;
                     }
@@ -110,11 +151,11 @@
                         finalVolume = initialVolume / 16.231;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume / 2;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume / 32;
                         return finalVolume;
                     }
@@ -156,11 +197,11 @@
                         finalVolume = initialVolume * 16.67;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume * 8.115;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume / 1.972;
                         return finalVolume;
                     }
@@ -193,7 +234,7 @@
                         return finalVolume;
                     }
                 }
-                if (initialUnit == "Fluid ounce (US)") {
+                if (initialUnit == "Fluid ounce") {
                     if (finalUnit == "Teaspoon") {
                         finalVolume = initialVolume * 6;
                         return finalVolume;
@@ -206,7 +247,7 @@
                         finalVolume = initialVolume / 8;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume / 16;
                         return finalVolume;
                     }
@@ -239,7 +280,7 @@
                         return finalVolume;
                     }
                 }
-                if (initialUnit == "Pint (US)") {
+                if (initialUnit == "Pint") {
                     if (finalUnit == "Teaspoon") {
                         finalVolume = initialVolume * 96;
                         return finalVolume;
@@ -252,7 +293,7 @@
                         finalVolume = initialVolume * 1.972;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume * 16;
                         return finalVolume;
                     }
@@ -298,11 +339,11 @@
                         finalVolume = initialVolume * 3.943;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume * 32;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume * 2;
                         return finalVolume;
                     }
@@ -344,11 +385,11 @@
                         finalVolume = initialVolume / 250;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume / 29.574;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume / 473.176;
                         return finalVolume;
                     }
@@ -390,11 +431,11 @@
                         finalVolume = initialVolume * 4;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume * 33.814;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume * 2.113;
                         return finalVolume;
                     }
@@ -436,11 +477,11 @@
                         finalVolume = initialVolume * 15.773;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Fluid ounce (US)") {
+                    else if (finalUnit == "Fluid ounce") {
                         finalVolume = initialVolume * 128;
                         return finalVolume;
                     }
-                    else if (finalUnit == "Pint (US)") {
+                    else if (finalUnit == "Pint") {
                         finalVolume = initialVolume * 8;
                         return finalVolume;
                     }
@@ -471,43 +512,6 @@
                 }
             }
 
-            function displayConversionInfo() {
-                $conversionDisplay = $(`<div class="result">overlay</div>`);
-                $conversionDisplay.append(``)
-                $conversionDisplay.css({
-                    "width": "400px",
-                    "height": "200px",
-                    "position":"absolute",
-                    "top": "25%",
-                    "left": "50%",
-                    "margin": "-100px 0 0 -200px",
-                    "z-index":"999",
-                    "display":"none",
-                    "background": settings.conversionDisplay.background,
-                    "border": settings.conversionDisplay.border,
-                    "border-radius": settings.conversionDisplay.borderRadius
-                    
-                });
-
-                $("body").append($conversionDisplay);
-            };
-
-            function setOverlayProperties() {
-                $overlay = $('<div></div>');
-                $overlay.css({
-                    "background": settings.overlay,
-                    "position": "absolute",
-                    "top": "0px",
-                    "left": "0px",
-                    "display": "none",
-                    "text-align": "center",
-                    "width": "100%",
-                    "height": "100%",
-                    "padding-top": "5%" 
-                });
-                $("body").append($overlay);
-            }
-
             function setCloseButtonProperties() {
                 var prop = {
                     "color": "white",
@@ -535,6 +539,7 @@
 
             $closeButton.click(function () {
                 $overlay.hide();
+                $conversionDisplay.empty();
                 $conversionDisplay.hide();
             })
 
