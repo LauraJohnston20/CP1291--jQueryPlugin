@@ -9,35 +9,70 @@
                 height: "30px"
            },
            conversionDisplay: {
-                background: 'rgba(255, 255, 255, 0.5)',
+                background: 'rgba(200, 200, 200, 1)',
                 border: "5px solid #ffffff",
-                borderRadius: "15px"  
+                borderRadius: "15px",
+                  
            }
         }, options)
 
         return this.each(function() {
 
-            var $overlay, $closeButton, $conversionDisplay;
+            var $overlay, $closeButton, $conversionDisplay, $calculateConversion;
             setOverlayProperties();
             setCloseButtonProperties();
             displayConversionInfo();
+            
 
             $(this).find("#convert").on("click", function(event) {
                 // if volume not entered/ unit not chosen alert message should appear
                 event.preventDefault();
-                $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
-                $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
+
+                let initialVolume = $("#initial_volume").val();
+                let initialUnit = $("#initial_unit").val();
+                let finalUnit = $("#final_unit").val();
+
+                if (initialVolume == "" || isNaN(initialVolume)) {
+                    alert("Please enter a valid initial volume.")
+                }
+                else if (initialUnit == "Initial Unit" || finalUnit == "Final Unit") {
+                    alert("Please select volume units.")
+                }
+                else{ 
+                    $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
+                    $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
+                    let finalVolume = (calculateConversion(initialVolume, initialUnit, finalUnit)).toFixed(2);
+                    console.log(initialVolume);
+                    console.log(initialUnit);
+                    console.log(finalUnit);
+                    console.log(finalVolume);
+                }
             });
+
+            function calculateConversion (initialVolume, initialUnit, finalUnit) {
+                let finalVolume;
+                if (initialUnit == "Teaspoon") {
+                    if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume / 3;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume / 48;
+                        return finalVolume;
+                    }
+                }
+            }
 
             function displayConversionInfo() {
                 $conversionDisplay = $('<div></div>');
                 $conversionDisplay.css({
-                    "height": "200px",
                     "width": "400px",
-                    "margin":"0 auto",
-                    "position":"sticky",
-                    "z-index":"10",
-                    "down": "20px",
+                    "height": "200px",
+                    "position":"absolute",
+                    "top": "25%",
+                    "left": "50%",
+                    "margin": "-100px 0 0 -200px",
+                    "z-index":"999",
                     "display":"none",
                     "background": settings.conversionDisplay.background,
                     "border": settings.conversionDisplay.border,
