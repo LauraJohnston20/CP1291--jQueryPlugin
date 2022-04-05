@@ -16,12 +16,12 @@
                 fontFamily: "sans-serif",
                 textAlign: "center",
                 textColor: "black"
-           }
+           },
         }, options)
 
         return this.each(function() {
 
-            var $overlay, $closeButton, $conversionDisplay, $calculateConversion;
+            var $overlay, $closeButton, $conversionDisplay;
             setOverlayProperties();
             setCloseButtonProperties();
             displayConversionInfo();
@@ -29,7 +29,7 @@
             $(this).find("#convert").on("click", function(event) {
                 event.preventDefault();
 
-                let initialVolume = $("#initial_volume").val();
+                let initialVolume = parseFloat($("#initial_volume").val());
                 let initialUnit = $("#initial_unit").val();
                 let finalUnit = $("#final_unit").val();
 
@@ -45,14 +45,8 @@
                 else{ 
                     $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
                     $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
-                    let finalVolume = (calculateConversion(initialVolume, initialUnit, finalUnit));
-                    $conversionDisplay.append(`\nUse ${(finalVolume).toFixed(2)} ${(finalUnit).toLowerCase()}(s) instead of ${initialVolume} ${initialUnit.toLowerCase()}(s)!`)
-                   
-                   
-                    console.log(initialVolume);
-                    console.log(initialUnit);
-                    console.log(finalUnit);
-                    console.log(finalVolume.toFixed(3));
+                    let finalVolume = parseFloat(calculateConversion(initialVolume, initialUnit, finalUnit).toFixed(3));
+                    $conversionDisplay.append(`\nTry using ${(finalVolume)} ${(finalUnit).toLowerCase()}(s) instead of ${initialVolume} ${initialUnit.toLowerCase()}(s)!`)
                 }
             });
 
@@ -538,8 +532,8 @@
             }
 
             $closeButton.click(function () {
-                $overlay.hide();
                 $conversionDisplay.empty();
+                $overlay.hide();
                 $conversionDisplay.hide();
             })
 
