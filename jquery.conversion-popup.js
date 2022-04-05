@@ -43,6 +43,9 @@
                     alert("Please select different units for initial and final volumes.")
                 }
                 else{ 
+                    if ($.isFunction(settings.open)) {
+                        settings.open.call(this);
+                    }
                     $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
                     $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
                     let finalVolume = parseFloat(calculateConversion(initialVolume, initialUnit, finalUnit).toFixed(3));
@@ -532,11 +535,13 @@
             }
 
             $closeButton.click(function () {
+                if ($.isFunction(settings.close)) {
+                    settings.close.call(this);
+                }
                 $conversionDisplay.empty();
                 $overlay.hide();
                 $conversionDisplay.hide();
             })
-
         });
     }
 }(jQuery));
