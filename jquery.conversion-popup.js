@@ -25,27 +25,31 @@
             
 
             $(this).find("#convert").on("click", function(event) {
-                // if volume not entered/ unit not chosen alert message should appear
+    
                 event.preventDefault();
 
                 let initialVolume = $("#initial_volume").val();
                 let initialUnit = $("#initial_unit").val();
                 let finalUnit = $("#final_unit").val();
 
-                if (initialVolume == "" || isNaN(initialVolume)) {
-                    alert("Please enter a valid initial volume.")
+                if (initialVolume === "" || isNaN(initialVolume)) {
+                    alert("Please enter a valid decimal value for initial volume.")
                 }
-                else if (initialUnit == "Initial Unit" || finalUnit == "Final Unit") {
-                    alert("Please select volume units.")
+                else if (initialUnit === "Initial Unit" || finalUnit === "Final Unit") {
+                    alert("Please select initial and final volume units.")
+                }
+                else if (initialUnit === finalUnit) {
+                    alert("Please select different units for initial and final volumes.")
                 }
                 else{ 
                     $overlay.css({opacity: 0.1}).show().animate({opacity: 1});
                     $conversionDisplay.css({opacity: 0.1}).show().animate({opacity: 1});
-                    let finalVolume = (calculateConversion(initialVolume, initialUnit, finalUnit)).toFixed(2);
+                    let finalVolume = (calculateConversion(initialVolume, initialUnit, finalUnit));
+                    $conversionDisplay.append(`${initialUnit}`)
                     console.log(initialVolume);
                     console.log(initialUnit);
                     console.log(finalUnit);
-                    console.log(finalVolume);
+                    console.log(finalVolume.toFixed(3));
                 }
             });
 
@@ -60,11 +64,416 @@
                         finalVolume = initialVolume / 48;
                         return finalVolume;
                     }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume / 6;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume / 96;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 192;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 5;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 203;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 768;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume / 3.325;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 5745;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 202884;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Tablespoon") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 3;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume / 16.231;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume / 2;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume / 32;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 64;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 15;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 67.628;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 256;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume / 1.108;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 1915;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 67628;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Cup") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 50;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 16.67;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume * 8.115;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume / 1.972;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 3.943;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 250;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 4.167;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 15.773;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 14.646;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 118;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 4167;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Fluid ounce (US)") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 6;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 2;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume / 8;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume / 16;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 32;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 29.574;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 33.814;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 128;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 1.805;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 958;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 33814;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Pint (US)") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 96;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 32;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume * 1.972;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume * 16;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 2;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 473.176;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 2.113;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 8;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 28.875;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 59.844;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 2113;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Quart") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 192;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 64;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume * 3.943;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume * 32;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume * 2;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 946.353;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 1.057;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 4;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 57.75;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 29.922;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 1057;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Millilitre") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume / 5;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume / 15;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume / 250;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume / 29.574;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume / 473.176;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume / 946.353;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume / 1000;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 3785.41;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume / 16.387;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 28317;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 1000000;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Litre") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 200;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 66.67;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume * 4;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume * 33.814;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume * 2.113;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume * 1.057;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 1000;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Gallon") {
+                        finalVolume = initialVolume / 3.785;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 61.024;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 28.317;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 1000;
+                        return finalVolume;
+                    }
+                }
+                if (initialUnit == "Gallon") {
+                    if (finalUnit == "Teaspoon") {
+                        finalVolume = initialVolume * 768;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Tablespoon") {
+                        finalVolume = initialVolume * 256;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cup") {
+                        finalVolume = initialVolume * 15.773;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Fluid ounce (US)") {
+                        finalVolume = initialVolume * 128;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Pint (US)") {
+                        finalVolume = initialVolume * 8;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Quart") {
+                        finalVolume = initialVolume * 4;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Millilitre") {
+                        finalVolume = initialVolume * 3785;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Litre") {
+                        finalVolume = initialVolume * 3.785;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic inch") {
+                        finalVolume = initialVolume * 231;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic foot") {
+                        finalVolume = initialVolume / 7.481;
+                        return finalVolume;
+                    }
+                    else if (finalUnit == "Cubic metre") {
+                        finalVolume = initialVolume / 264;
+                        return finalVolume;
+                    }
                 }
             }
 
             function displayConversionInfo() {
-                $conversionDisplay = $('<div></div>');
+                $conversionDisplay = $(`<div class="result">overlay</div>`);
+                $conversionDisplay.append(``)
                 $conversionDisplay.css({
                     "width": "400px",
                     "height": "200px",
@@ -79,6 +488,7 @@
                     "border-radius": settings.conversionDisplay.borderRadius
                     
                 });
+
                 $("body").append($conversionDisplay);
             };
 
