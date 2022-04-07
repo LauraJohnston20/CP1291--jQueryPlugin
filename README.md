@@ -56,11 +56,19 @@ Customize the popup overlay
 
 # Using the Plugin
 ## Step 1:
-Enter the original volume and select original measurement from the first dropdown list. 
+Enter the original volume and select original measurement from the first dropdown list.
+
+![image](https://user-images.githubusercontent.com/95102375/162336423-dd15a9e6-5275-412f-b249-1fbfdef52f1c.png)
+
 ## Step 2:
-After an original volume and measurement have been selected, choose the final measurement to be converted to from the second
-dropdown list. Click Convert button.
+After an original volume and measurement have been selected, choose the final measurement to be converted to from the second dropdown list. Click Convert button.
+
+![image](https://user-images.githubusercontent.com/95102375/162336453-be6f378a-0e32-4a5c-a0d3-fe612d7dedb2.png)
+
 * Note: Original volume must be a valid decimal number and both the initial and final measurements must be selected before 
-* clicking enter. Otherwise an alert message will be displayed advising of the correction to be made.
+clicking enter. Otherwise an alert message will be displayed advising of the correction to be made.
 ## Step 3: 
 Once the Convert button is clocked, the popup overlay will be displayed over the current webpage. This will display the correct conversion to scale the measurement. To close the popup, the "X" located in the upper right hand corner of the webpage must be clicked. The popup must be closed to restart the process and generate another conversion.
+
+![image](https://user-images.githubusercontent.com/95102375/162336595-454490a9-3d52-4617-b8fa-1ec7255c059d.png)
+
