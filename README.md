@@ -1,5 +1,6 @@
 # CP1291-CourseProject-jQueryPlugin
 Advanced JavaScript Course Project - jQuery Plugin
+
 ## Description
 # Download & Installation
 ## Step 1:
@@ -8,11 +9,48 @@ Advanced JavaScript Course Project - jQuery Plugin
   * [app.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/app.js)
   * [jquery.conversion.popup.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/jquery.conversion-popup.js)
 * To demo the plugin, launch [index.html](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/index.html) in your default browser.
+* 
 ## Step 2:
 Add the following HTML tags to your HTML file:
-
+```javascript
+     <div id="volumeConversion">
+        <label for="volume_input"> Volume: </label>
+        <input type="text" id="initial_volume">
+        <select id="initial_unit">
+            <option>Initial Unit</option>
+            <option>Millilitre</option>
+            <option>Teaspoon</option>
+            <option>Tablespoon</option>
+            <option>Fluid ounce</option>
+            <option>Pint</option>
+            <option>Cup</option>
+            <option>Litre</option>
+            <option>Quart</option>
+            <option>Gallon</option>
+        </select>
+        <label for="to"> to </label>
+        <select id="final_unit">
+            <option>Final Unit</option>
+            <option>Millilitre</option>
+            <option>Teaspoon</option>
+            <option>Tablespoon</option>
+            <option>Fluid ounce</option>
+            <option>Pint</option>
+            <option>Cup</option>
+            <option>Litre</option>
+            <option>Quart</option>
+            <option>Gallon</option>
+        </select>
+        <input type="button" id="convert" value="Convert">
+    </div>
+```
 Add the following script tags to your HTML file:
-
+```javascript
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script> 
+    <!--YOUR JS FILE-->
+    <script src="jquery.conversion-popup.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+```
 ## Step 3:
 Customize the popup overlay
 
