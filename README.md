@@ -3,11 +3,11 @@ Advanced JavaScript Course Project - jQuery Plugin
 ## Description
 # Download & Installation
 ## Step 1:
-* Download files 
-* Unzip folder & add files to existing website:
-* * app.js
-* * jquery.conversion.popup.js
-* To demo the plugin, launch [index.html](link) in your default browser.
+* Download the files located in the git repo https://github.com/LauraJohnston20/CP1291-CourseProject-jQueryPlugin or [click here](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/archive/refs/heads/main.zip).
+* Unzip the downloaded folder and add the following files to the existing website: 
+  * [app.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/app.js)
+  * [jquery.conversion.popup.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/jquery.conversion-popup.js)
+* To demo the plugin, launch [index.html](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/index.html) in your default browser.
 ## Step 2:
 Add the following HTML tags to your HTML file:
 
