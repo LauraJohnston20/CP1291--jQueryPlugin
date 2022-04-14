@@ -2,9 +2,10 @@
 Advanced JavaScript Course Project - jQuery Plugin
 
 ## Description
+This jQuery plugin was created as a requisite for CP1291 Advanced JavaScript. Implementing this plugin on a website will provide users the capability of converting between different volume units, or measurements. The idea for this plugin came from the need to convert ingredient measurements when scaling recipes found online. Through the use of this plugin conversion can be made while staying on the same webpage. To use the plugin, the user will have to enter an initial volume and choose the initial and final units from dropdown lists. By clicking 'Convert', an overlay will popup over the current webpage displaying the conversion and advising how to proceed with the new measurement. The 'X' button in the top right corner of the webpage must be clicked for another conversion to be completed.   
 # Download & Installation
 ## Step 1:
-* Download the files located in the git repo https://github.com/LauraJohnston20/CP1291-CourseProject-jQueryPlugin or [click here](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/archive/refs/heads/main.zip).
+* Download the files located in the git repo https://github.com/LauraJohnston20/CP1291-jQueryPlugin or [click here](https://github.com/LauraJohnston20/CP1291-jQueryPlugin/archive/refs/heads/main.zip).
 * Unzip the downloaded folder and add the following files to the existing website: 
   * [app.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/app.js)
   * [jquery.conversion.popup.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/jquery.conversion-popup.js)
@@ -51,7 +52,7 @@ Add the following script tags to your HTML file:
  <script src="app.js" type="text/javascript"></script>
 ```
 ## Step 3:
-The popup overlay is able to be customized and can be done in the JavaScript file app.js. The options for customzing include the following:
+The popup overlay is able to be customized which can be done in the JavaScript file app.js. The options for customzing include the following:
 ### Overlay:
 ``` javascript
  $("#volumeConversion").conversionPopup({
