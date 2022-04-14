@@ -9,50 +9,97 @@ Advanced JavaScript Course Project - jQuery Plugin
   * [app.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/app.js)
   * [jquery.conversion.popup.js](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/jquery.conversion-popup.js)
 * To demo the plugin, launch [index.html](https://github.com/LauraJohnston20/CP1291-CourseProject-JQueryPlugin/blob/main/index.html) in your default browser.
-* 
 ## Step 2:
 Add the following HTML tags to your HTML file:
 ```javascript
-     <div id="volumeConversion">
-        <label for="volume_input"> Volume: </label>
-        <input type="text" id="initial_volume">
-        <select id="initial_unit">
-            <option>Initial Unit</option>
-            <option>Millilitre</option>
-            <option>Teaspoon</option>
-            <option>Tablespoon</option>
-            <option>Fluid ounce</option>
-            <option>Pint</option>
-            <option>Cup</option>
-            <option>Litre</option>
-            <option>Quart</option>
-            <option>Gallon</option>
-        </select>
-        <label for="to"> to </label>
-        <select id="final_unit">
-            <option>Final Unit</option>
-            <option>Millilitre</option>
-            <option>Teaspoon</option>
-            <option>Tablespoon</option>
-            <option>Fluid ounce</option>
-            <option>Pint</option>
-            <option>Cup</option>
-            <option>Litre</option>
-            <option>Quart</option>
-            <option>Gallon</option>
-        </select>
-        <input type="button" id="convert" value="Convert">
-    </div>
+ <div id="volumeConversion">
+    <label for="volume_input"> Volume: </label>
+    <input type="text" id="initial_volume">
+    <select id="initial_unit">
+        <option>Initial Unit</option>
+        <option>Millilitre</option>
+        <option>Teaspoon</option>
+        <option>Tablespoon</option>
+        <option>Fluid ounce</option>
+        <option>Pint</option>
+        <option>Cup</option>
+        <option>Litre</option>
+        <option>Quart</option>
+        <option>Gallon</option>
+    </select>
+    <label for="to"> to </label>
+    <select id="final_unit">
+        <option>Final Unit</option>
+        <option>Millilitre</option>
+        <option>Teaspoon</option>
+        <option>Tablespoon</option>
+        <option>Fluid ounce</option>
+        <option>Pint</option>
+        <option>Cup</option>
+        <option>Litre</option>
+        <option>Quart</option>
+        <option>Gallon</option>
+    </select>
+    <input type="button" id="convert" value="Convert">
+ </div>
 ```
 Add the following script tags to your HTML file:
 ```javascript
-    <script src="http://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script> 
-    <!--YOUR JS FILE-->
-    <script src="jquery.conversion-popup.js" type="text/javascript"></script>
-    <script src="app.js" type="text/javascript"></script>
+ <script src="http://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script> 
+ <!--YOUR JS FILE-->
+ <script src="jquery.conversion-popup.js" type="text/javascript"></script>
+ <script src="app.js" type="text/javascript"></script>
 ```
 ## Step 3:
-Customize the popup overlay
+The popup overlay is able to be customized and can be done in the JavaScript file app.js. The options for customzing include the following:
+### Overlay:
+``` javascript
+ $("#volumeConversion").conversionPopup({
+     overlay: 'rgba(0, 0, 0, 0.5)',
+ ```
+* **overlay**: 'rgb' indicates background colour of the overlay, 'a' indicates opacity of the overlay
+### Close Button:
+``` javascript
+ closeButton: {
+     src: null,
+     width: "20px",
+     height: "30px"
+ },
+  ```
+* **src**: source of the image for close button
+* **width**: width of close button
+* **height**: height of close button
+### Popup Display:
+``` javascript
+ conversionDisplay: {
+     background: 'rgba(200, 200, 200, 1)',
+     border: "5px solid #ffffff",
+     borderRadius: "15px",
+     fontSize: "large",
+     fontFamily: "sans-serif",
+     textAlign: "center", 
+     textColor: "black"
+ },
+ ```
+* **background**: 'rgb' indicates background colour of the popup, 'a' indicates opacity of the popup
+* **border**: width, style and color of popup
+* **borderRadius**: border radius of popup corners
+* **fontSize**: size of font of popup display
+* **fontFamily**: font family of poopup display
+* **textAlign**: horizontal alignment of text in popup display
+* **textColor**: font colour of text in popup display
+### Expose functions:
+``` javascript
+ open: function() {
+     console.log("opened")
+ },
+ close: function() {
+     console.log("closed")
+ }
+ });
+  ```
+* **open**: 'opened' in console when overlay displayed
+* **close**: 'closed' in console when overlay not displayed
 
 # Using the Plugin
 ## Step 1:
