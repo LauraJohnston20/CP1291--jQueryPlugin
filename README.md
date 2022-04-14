@@ -1,4 +1,4 @@
-# CP1291-CourseProject-jQueryPlugin
+# CP1291--jQueryPlugin
 Advanced JavaScript Course Project - jQuery Plugin
 
 ## Description
